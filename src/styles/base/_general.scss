@@ -1,0 +1,67 @@
+// -----------------------------------------------
+// --------------MAIN SETTINGS--------------------
+// -----------------------------------------------
+
+//? Миксин сброса стилей
+
+//? Общая обёртка
+.full-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+//? Размеры контейнеров
+.container {
+	position: relative;
+}
+
+body {
+	position: relative;
+	font-family: $base_ff;
+	font-size: $base_fz;
+	line-height: 1.5;
+	background: $page_background;
+	overflow-x: hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+body:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('../../img/body_bg.png');
+	background-repeat: no-repeat;
+	background-size: 100% 92%;
+	background-attachment: scroll; //! под вопросом 
+}
+
+img {
+	display: block;
+}
+
+a {
+	font-family: inherit;
+	cursor: pointer;
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: $base_hover;
+		transition: color 0.3s ease;
+	}
+}
+
+button {
+	outline: none;
+	border: transparent;
+}
+
+
+// ------------------------------------------------
+// --------------UNIC BUTTONS----------------------
+// ------------------------------------------------
