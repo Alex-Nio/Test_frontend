@@ -4,29 +4,6 @@
 -   установите gulp глобально: yarn global add gulp-cli
 -   установите bem-tools-core глобально: yarn global add bem-tools-core
 
-# Working with git_mode
-
-To use shortcuts you enter git_mode first.
-
--   To enter git_mode, open a terminal and press `g` `<Enter>`.
--   To exit git_mode, close the terminal or enter `ge`.
-
-| Key              | Description  |
-| ---------------- | ------------ |
-| `a or add `      | git add      |
-| `s or status`    | git status   |
-| `c or commit`    | git commit   |
-| `push`           | git push     |
-| `d or diff`      | git diff     |
-| `grep or search` | git search   |
-| `m or merge`     | git merge    |
-| `b`              | git branch   |
-| `remote`         | git remote   |
-| `pull`           | git pull     |
-| `i or init`      | git init     |
-| `clone`          | git clone    |
-| `ch or checkout` | git checkout |
-
 ## :open_file_folder: Файловая структура
 
 ```
