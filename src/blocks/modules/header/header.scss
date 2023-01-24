@@ -1,3 +1,259 @@
 // -----------------------------------------------
-// ------------------HEADER-----------------------
+// ---------------HEADER NAV----------------------
 // -----------------------------------------------
+
+.menu {
+	position: relative;
+	@include fdrjsa_aic;
+	background: $nav_background;
+	padding: 22px 0 18px 0;
+}
+
+.logo {
+	display: inline-block;
+	width: 100%;
+	max-width: 75px;
+	overflow: hidden;
+}
+
+.menu-list {
+	@include fdrjsa_aic;
+	flex: 1;
+	max-width: 777px;
+	padding: 0 5px;
+
+	&__item {
+		position: relative;
+		@include ff($ff_F, $b, 1.8rem);
+		line-height: 22px;
+		color: $white;
+		padding: 10px 41px 10px 21px;
+		border-radius: 100px;
+		transition: all 0.3s linear;
+
+		&::after {
+			position: absolute;
+			content: "";
+			width: 8px;
+			height: 4px;
+			top: 52%;
+			right: 25px;
+			transform: translate(50%, -50%);
+			background: url("/img/svg/arrow-icon.svg") no-repeat center / 100%;
+			transition: all 0.3s linear;
+		}
+
+		&.active {
+			padding: 10px 41px 10px 21px;
+			background: $btn_background;
+
+			&::after {
+				transform: translate(50%, -50%) scale(1, -1);
+				transition: all 0.3s linear;
+			}
+		}
+
+		&.active {
+			background: $btn_background;
+
+			&:hover {
+				cursor: pointer;
+				background: $btn_background;
+				transition: all 0.3s linear;
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+			background: $base_hover;
+		}
+	}
+}
+
+.menu-actions {
+	@include fdr;
+	padding: 0 5px;
+}
+
+.menu-content {
+	position: absolute;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 44px);
+	grid-row-gap: 53px;
+	align-items: center;
+	width: 100%;
+	max-width: 535px;
+	margin-top: 7px;
+	background: $nav_background;
+	border-radius: 9px;
+	padding: 24px 35px;
+	-webkit-animation: fadeIn 0.3s linear;
+	animation: fadeIn 0.3s linear;
+	z-index: 30;
+
+	&::after {
+		position: absolute;
+		content: "";
+		top: 50%;
+		left: 50%;
+		width: calc(100% - 70px);
+		border-top: 1px solid $gl;
+		opacity: 0.5;
+		transform: translate(-50%, -50%);
+	}
+
+	&.afteroff {
+		&::after {
+			display: none;
+		}
+	}
+
+	&.hide {
+		display: none;
+	}
+}
+
+.menu-item {
+	&__link {
+		@include fdrjs_ais;
+
+		&:hover {
+			& .menu-item__text .item-description {
+				&::after {
+					width: 100%;
+					transition: width 0.3s linear;
+				}
+			}
+		}
+	}
+
+	&__text {
+		margin: 0 10px;
+	}
+}
+
+.menu-icon {
+	margin-top: 4px;
+}
+
+.item-title {
+	@include ff($ff_F, $b, 1.6rem);
+	line-height: 20px;
+	margin-bottom: 6px;
+	color: $white;
+}
+
+.item-description {
+	position: relative;
+	@include ff($ff_F, $r, 1.4rem);
+	line-height: 18px;
+	color: $gl;
+
+	&::after {
+		position: absolute;
+		content: "";
+		left: 0;
+		bottom: -4px;
+		border-bottom: 1px solid $gl;
+		width: 0;
+		transition: width 0.5s linear;
+	}
+}
+
+.header-content {
+	height: 100vh;
+	width: 100vw;
+	background: $header_background;
+}
+
+@media screen and (max-width: 1120px) {
+	.burger-btn {
+		display: inline-block;
+	}
+
+	.menu {
+		@include fdcjsa_aic;
+		position: fixed;
+		right: -100%;
+		height: 100vh;
+		padding: 0 20px;
+		z-index: 50;
+		overflow-y: scroll;
+		transition: all 0.5s ease;
+
+		&.active {
+			right: 0;
+			transition: all 0.5s ease;
+		}
+	}
+
+	.menu-list {
+		@include fdcjs_aic;
+		flex: 0;
+
+		&__item {
+			margin: 20px 0;
+		}
+	}
+
+	.menu-content {
+		right: 215px;
+		left: unset;
+		top: 50%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.menu {
+		padding: 0 10px;
+	}
+
+	.menu-content {
+		right: 185px;
+		grid-template-columns: repeat(1, 1fr);
+		max-width: 115px;
+		padding: 25px 30px 20px 15px;
+
+		&::after {
+			display: none;
+		}
+	}
+}
+
+// -----------------------------------------------
+// ------------HEADER CONTENT---------------------
+// -----------------------------------------------
+
+/* container for select element */
+.select-container {
+	position: relative;
+	width: 200px;
+}
+
+/* select element */
+.city-select {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	/* remove default styling */
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+	width: 100%;
+}
+
+/* arrow to indicate dropdown */
+.select-container:after {
+	content: "";
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid gray;
+}

@@ -5,6 +5,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	-webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -33,6 +34,7 @@ body {
 	width: 100%;
 	max-width: 1200px;
 	padding: 0 10px;
+	margin: 0 auto;
 }
 
 body {
@@ -54,6 +56,10 @@ footer {
 	margin-top: auto;
 }
 
+ul,
+li {
+	list-style-type: none;
+}
 
 img {
 	display: block;
@@ -83,7 +89,7 @@ button {
 // -------------------FONTS------------------------
 // ------------------------------------------------
 
-@media screen and(max-width: 1600px) {
+@media screen and(min-width: 1600px) {
 	h1 {
 		@include ff($ff_F, $b, 4.8rem);
 		line-height: 55px;
@@ -117,7 +123,7 @@ button {
 	}
 }
 
-@media screen and(max-width: 1280px) {
+@media screen and(min-width: 1280px) {
 	h1 {
 		@include ff($ff_F, $b, 4.2rem);
 		line-height: 50px;
@@ -151,7 +157,7 @@ button {
 	}
 }
 
-@media screen and(max-width: 768px) {
+@media screen and(min-width: 768px) {
 	h1 {
 		@include ff($ff_F, $b, 3rem);
 		line-height: 35px;
@@ -190,9 +196,13 @@ button {
 // ------------------------------------------------
 
 .btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	max-width: 220px;
-	max-height: 60px;
+	min-width: 145px;
+	max-height: 50px;
 	border-radius: 32.5px;
 	color: $white;
 	@include ff($ff_F, $b, 1.6rem);
@@ -200,7 +210,44 @@ button {
 	padding: 19px 26px 21px 26px;
 	background: $btn_background;
 
-	x &:hover {
+	&:hover {
 		box-shadow: 0px 10px 20px rgba(255, 45, 35, 0.3);
+	}
+}
+
+.burger-btn {
+	display: none;
+	margin: 0 10px;
+	position: fixed;
+	width: 28px;
+	height: 28px;
+	top: 15px;
+	right: 5px;
+	background: url('/img/svg/burger-icon.svg') no-repeat center / contain;
+	font-size: 1.8rem;
+	color: $white;
+}
+
+// ------------------------------------------------
+// ------------ Base Animations -------------------
+// ------------------------------------------------
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
