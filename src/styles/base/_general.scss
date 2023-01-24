@@ -2,17 +2,37 @@
 // --------------MAIN SETTINGS--------------------
 // -----------------------------------------------
 
-//? Миксин сброса стилей
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.2%;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
 
 //? Общая обёртка
 .full-wrapper {
 	position: relative;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 //? Размеры контейнеров
 .container {
 	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 10px;
 }
 
 body {
@@ -26,18 +46,14 @@ body {
 	-webkit-backface-visibility: hidden;
 }
 
-body:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: url('../../img/body_bg.png');
-	background-repeat: no-repeat;
-	background-size: 100% 92%;
-	background-attachment: scroll; //! под вопросом 
+main {
+	flex: 1;
 }
+
+footer {
+	margin-top: auto;
+}
+
 
 img {
 	display: block;
@@ -57,11 +73,134 @@ a {
 }
 
 button {
+	cursor: pointer;
 	outline: none;
 	border: transparent;
+	transition: all 0.3s linear;
 }
 
+// ------------------------------------------------
+// -------------------FONTS------------------------
+// ------------------------------------------------
+
+@media screen and(max-width: 1600px) {
+	h1 {
+		@include ff($ff_F, $b, 4.8rem);
+		line-height: 55px;
+	}
+
+	h2 {
+		@include ff($ff_F, $b, 3.5rem);
+		line-height: 40px;
+	}
+
+	h3 {
+		@include ff($ff_F, $b, 2.5rem);
+		line-height: 30px;
+	}
+
+	h5 {
+		@include ff($ff_F, $b, 1.6rem);
+		line-height: 20px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 2rem);
+			line-height: 34px;
+		}
+
+		&--small {
+			@include ff($ff_F, $r, 1.4rem);
+			line-height: 18px;
+		}
+	}
+}
+
+@media screen and(max-width: 1280px) {
+	h1 {
+		@include ff($ff_F, $b, 4.2rem);
+		line-height: 50px;
+	}
+
+	h2 {
+		@include ff($ff_F, $b, 3rem);
+		line-height: 35px;
+	}
+
+	h3 {
+		@include ff($ff_F, $b, 2rem);
+		line-height: 26px;
+	}
+
+	h5 {
+		@include ff($ff_F, $b, 1.4rem);
+		line-height: 17.12px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.8rem);
+			line-height: 26px;
+		}
+
+		&--small {
+			@include ff($ff_F, $r, 1.4rem);
+			line-height: 18px;
+		}
+	}
+}
+
+@media screen and(max-width: 768px) {
+	h1 {
+		@include ff($ff_F, $b, 3rem);
+		line-height: 35px;
+	}
+
+	h2 {
+		@include ff($ff_F, $b, 2.6rem);
+		line-height: 33px;
+	}
+
+	h3 {
+		@include ff($ff_F, $b, 1.8rem);
+		line-height: 22px;
+	}
+
+	h5 {
+		@include ff($ff_F, $b, 1.4rem);
+		line-height: 18px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.5rem);
+			line-height: 22px;
+		}
+
+		&--small {
+			@include ff($ff_F, $r, 1.4rem);
+			line-height: 18px;
+		}
+	}
+}
 
 // ------------------------------------------------
 // --------------UNIC BUTTONS----------------------
 // ------------------------------------------------
+
+.btn {
+	width: 100%;
+	max-width: 220px;
+	max-height: 60px;
+	border-radius: 32.5px;
+	color: $white;
+	@include ff($ff_F, $b, 1.6rem);
+	line-height: 20px;
+	padding: 19px 26px 21px 26px;
+	background: $btn_background;
+
+	x &:hover {
+		box-shadow: 0px 10px 20px rgba(255, 45, 35, 0.3);
+	}
+}

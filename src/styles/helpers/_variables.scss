@@ -1,19 +1,35 @@
-// Base colors
-
+//! Base colors
 $white: #ffffff;
 $black: #000;
+$gl: #8F95AC;
+$bl: #2C2E3E;
+$bd: #1E2030;
+$red: #FF2D23;
 
-// Bg
-
+//! Background
 $page_background: #ffffff;
+$btn_background: #FF0C00;
+$header_background: #1E2030;
 
-// Font Size
-
+//! Font Size
 $base_fz: 1rem;
-$base_ff: 'Arial', sans-serif;
-$base_hover: #a53689;
+$base_ff: 'Formular', sans-serif;
+$base_hover: #8F95AC;
 
-// Fonts
+//! Fonts
+$ff_F: 'Formular';
 
-// $ff_MPr: 'Myriad Pro Regular',
-// 	sans-serif;
+//! Font Style
+$I: italic;
+$O: oblique;
+
+//! Weight
+$th: 100; //* Thin
+$el: 200; //* Extra Light
+$l: 300; //* Light
+$r: 400; //* Regular
+$m: 500; //* Medium
+$sb: 600; //* SemiBold
+$b: 700; //* Bold
+$eb: 800; //* Extra Bold
+$bl: 900; //* Super
