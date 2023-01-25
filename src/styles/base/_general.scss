@@ -32,9 +32,15 @@ body {
 .container {
 	position: relative;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1190px;
 	padding: 0 10px;
 	margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+	.container {
+		padding: 0 20px;
+	}
 }
 
 body {
@@ -89,6 +95,24 @@ button {
 // -------------------FONTS------------------------
 // ------------------------------------------------
 
+.title {
+	color: $white;
+}
+
+.text {
+	color: $gl;
+
+	&--big {
+		@include ff($ff_F, $l, 1.5rem);
+		line-height: 22px;
+	}
+
+	&--small {
+		@include ff($ff_F, $r, 1.4rem);
+		line-height: 18px;
+	}
+}
+
 @media screen and(min-width: 1600px) {
 	h1 {
 		@include ff($ff_F, $b, 4.8rem);
@@ -108,18 +132,6 @@ button {
 	h5 {
 		@include ff($ff_F, $b, 1.6rem);
 		line-height: 20px;
-	}
-
-	.text {
-		&--big {
-			@include ff($ff_F, $l, 2rem);
-			line-height: 34px;
-		}
-
-		&--small {
-			@include ff($ff_F, $r, 1.4rem);
-			line-height: 18px;
-		}
 	}
 }
 
@@ -143,18 +155,6 @@ button {
 		@include ff($ff_F, $b, 1.4rem);
 		line-height: 17.12px;
 	}
-
-	.text {
-		&--big {
-			@include ff($ff_F, $l, 1.8rem);
-			line-height: 26px;
-		}
-
-		&--small {
-			@include ff($ff_F, $r, 1.4rem);
-			line-height: 18px;
-		}
-	}
 }
 
 @media screen and(min-width: 768px) {
@@ -176,18 +176,6 @@ button {
 	h5 {
 		@include ff($ff_F, $b, 1.4rem);
 		line-height: 18px;
-	}
-
-	.text {
-		&--big {
-			@include ff($ff_F, $l, 1.5rem);
-			line-height: 22px;
-		}
-
-		&--small {
-			@include ff($ff_F, $r, 1.4rem);
-			line-height: 18px;
-		}
 	}
 }
 
@@ -249,5 +237,56 @@ button {
 
 	100% {
 		opacity: 1;
+	}
+}
+
+
+@-webkit-keyframes fadeInUp {
+	from {
+		transform: translate3d(0, 30px, 0);
+		visibility: hidden;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		transform: translate3d(0, 30px, 0);
+		visibility: hidden;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeInDown {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 20px, 0);
+		opacity: 0;
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 20px, 0);
+		opacity: 0;
 	}
 }

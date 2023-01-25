@@ -125,91 +125,6 @@
 // 	}
 // });
 
-// -----------------------------------------------
-// -----------CIRCLE MAGIC ROTATION---------------
-// -----------------------------------------------
-
-// let circleBtns = document.querySelectorAll('.circle-btn'),
-// 	circleParent = document.querySelector('.circle-parent'),
-// 	descrps = document.querySelectorAll('.descr-block');
-
-// circleBtns.forEach((btn, i) => {
-// 	btn.addEventListener('click', function (e) {
-// 		hideTabContent();
-// 		setActiveDescr(i);
-// 	});
-// });
-
-// function setActiveBtn(i) {
-// 	circleBtns[i].classList.add('active');
-// }
-
-// function setActiveDescr(i) {
-// 	descrps[i].classList.add('active');
-// 	descrps[i].style.cssText = `animation: fadeIn 0.3s linear`;
-
-// }
-
-// function hideTabContent() {
-// 	descrps.forEach(descr => {
-// 		descr.classList.remove('active');
-// 	});
-
-// 	circleBtns.forEach(btn => {
-// 		btn.classList.remove('active');
-// 	});
-// }
-
-// circleParent.addEventListener('click', function (e) {
-// 	activeClassReset();
-
-// 	let target = e.target;
-
-// 	targetSetActiveClass(target);
-// 	setActiveIcon(target);
-
-// });
-
-// // Анимация родительского круга
-// function setCircleAnimation() {
-// 	circleParent.style.cssText = `
-//     transform: rotate(360deg);
-//     transition-duration: 1s;
-//   `;
-
-// 	setTimeout(clearStyle, 900);
-// }
-
-// // Сброс активной кнопки
-// function activeClassReset() {
-// 	circleBtns.forEach(btn => {
-// 		btn.classList.remove('active');
-// 	});
-// }
-
-// // Вешаем активный класс на кнопку
-// function targetSetActiveClass(target) {
-// 	if (target.classList.contains('circle-btn')) {
-// 		target.classList.add('active');
-// 	} else if (target.parentNode.className == 'circle-btn') {
-// 		target.parentNode.classList.add('active');
-// 	}
-// }
-
-// // Выводим новую центральную иконку
-// function setActiveIcon(target) {
-// 	let activeBtn = document.querySelector('.circle-btn.active'),
-// 		activeBtnIcon = activeBtn.querySelector('i').classList.value,
-// 		parentCenteredIcon = circleParent.querySelector("[data-element]");
-
-// 	parentCenteredIcon.classList.value = activeBtnIcon;
-// }
-
-// // Очищаем атрибут стилей
-// function clearStyle() {
-// 	circleParent.removeAttribute("style");
-// }
-
 //! Main Menu Initialization
 function menuInitialize() {
 	const menuItems = document.querySelectorAll(".menu-list__item"),
@@ -232,6 +147,18 @@ function menuInitialize() {
 				getMenuStartPosition();
 			}
 		});
+	});
+
+	// Клик по документу
+	document.addEventListener('click', function(e) {
+		let target = e.target,
+			not_active = !target.classList.contains("active"),
+			not_content = !target.classList.contains("menu-content");
+
+		if (not_active && not_content) {
+			removeAllActiveItems(menuItems);
+			hideMenuContent(menuContentItems);
+		}
 	});
 
 	// Скрываем контент пункта меню
@@ -309,44 +236,116 @@ function menuInitialize() {
 	window.addEventListener("resize", getMenuStartPosition);
 }
 
-document.addEventListener("DOMContentLoaded", menuInitialize);
+document.addEventListener("DOMContentLoaded", function() {
+	//!Header Scrolling
+	const nav = document.querySelector('.nav');
 
-//! Burger Mobile Menu
-const burgerBtn = document.querySelector(".burger-btn"),
-	menu = document.querySelector(".menu"),
-	menuContentItems = document.querySelectorAll(".menu-content");
-
-// Скрываем контент пункта меню
-function hideMenuContent(arr) {
-	arr.forEach(item => {
-		item.classList.add("hide");
-		item.classList.remove("active");
-	});
-}
-
-// Открыть / Закрыть меню
-function menuToggle(menu, btn, content) {
-	menu.classList.toggle("active");
-	!btn.classList.contains("active") ?? hideMenuContent(content);
-	hideMenuContent(content);
-}
-
-// Открыть / Закрыть меню
-burgerBtn.addEventListener("click", function(e) {
-	menuToggle(menu, burgerBtn, menuContentItems);
-});
-
-hideMenuContent(menuContentItems);
-
-// Закрыть меню при клике извне
-document.addEventListener('click', function(e) {
-	const target = e.target;
-	const its_menu = target == menu || menu.contains(target);
-	const its_btnMenu = target == burgerBtn;
-	const menu_is_active = menu.classList.contains("active");
-
-	if (!its_menu && !its_btnMenu && menu_is_active) {
-		menuToggle(menu, burgerBtn, menuContentItems);
+	// Triggers
+	let scrollTriger = 'on-scroll',
+		windowWidth;
+	
+	function checkWindowWidth() {
+		windowWidth = document.documentElement.offsetWidth;
+		return windowWidth;
 	}
-});
+	
+	window.addEventListener('resize', checkWindowWidth);
+	checkWindowWidth();
 
+	let requestFrame = window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		//* polyfill - throttle fall-back for unsupported browsers
+		(function () {
+			let throttle = false,
+				FPS = 1000 / 60; // 60fps (in ms)
+
+			return function (CB) {
+				if (throttle) return;
+				throttle = true;
+				setTimeout(function () { throttle = false }, FPS);
+				CB();
+			}
+		})();
+
+	function onScroll() {
+		window.addEventListener("scroll", callbackFunc);
+	
+		function callbackFunc() {
+			let y = window.pageYOffset;
+
+			if (y > 0 && windowWidth > 1119) {
+				nav.classList.add(scrollTriger);
+			} else {
+				nav.classList.remove(scrollTriger);
+			}
+		}
+	}
+
+	window.onscroll = function () {
+		requestFrame(onScroll);
+	};
+
+	//! Burger Mobile Menu
+	const burgerBtn = document.querySelector(".burger-btn"),
+		menu = document.querySelector(".menu"),
+		menuContentItems = document.querySelectorAll(".menu-content");
+
+	// Скрываем контент пункта меню
+	function hideMenuContent(arr) {
+		arr.forEach(item => {
+			item.classList.add("hide");
+			item.classList.remove("active");
+		});
+	}
+
+	// Открыть / Закрыть меню
+	function menuToggle(menu, btn, content) {
+		menu.classList.toggle("active");
+		!btn.classList.contains("active") ?? hideMenuContent(content);
+		hideMenuContent(content);
+	}
+
+	// Открыть / Закрыть меню
+	burgerBtn.addEventListener("click", function(e) {
+		menuToggle(menu, burgerBtn, menuContentItems);
+	});
+
+	hideMenuContent(menuContentItems);
+
+	// Закрыть меню при клике извне
+	document.addEventListener('click', function(e) {
+		const target = e.target;
+		const its_menu = target == menu || menu.contains(target);
+		const its_btnMenu = target == burgerBtn;
+		const menu_is_active = menu.classList.contains("active");
+
+		if (!its_menu && !its_btnMenu && menu_is_active) {
+			menuToggle(menu, burgerBtn, menuContentItems);
+		}
+	});
+
+	//! Select
+	const optionMenu = document.querySelector(".select-menu"),
+		selectBtn = optionMenu.querySelector(".select-btn"),
+		options = optionMenu.querySelectorAll(".option"),
+		selectDefaultText = optionMenu.querySelector(".default-text");
+
+	optionMenu.classList.add("hidden");
+
+	selectBtn.addEventListener("click", function(e) {
+		optionMenu.classList.toggle("active");
+		optionMenu.classList.remove("hidden");
+		optionMenu.classList.add("animated");
+	});
+
+	options.forEach((option) => {
+		option.addEventListener("click", () => {
+			let selectedOption = option.querySelector(".option-text").innerText;
+			selectDefaultText.innerText = selectedOption;
+			optionMenu.classList.add("hidden");
+			optionMenu.classList.remove("active");
+		});
+	});
+})
+
+document.addEventListener("DOMContentLoaded", menuInitialize);

@@ -354,23 +354,61 @@
 	</nav>
 	<div class="header-content">
 		<div class="container">
-			<div class="header-title">
-				<h1>
-					Недвижимость Санкт-Петербурга
-					и&nbsp;Москвы
-				</h1>
-			</div>
-			<form class="header-form">
-				<div class="select-container">
-					<select class="city-select">
-						<option value="">Выбрать город</option>
-						<option value="MOW">Москва</option>
-						<option value="SPB">Санкт-Петербург</option>
-						<option value="VLD">Владивосток</option>
-						<option value="ORB">Оренбург</option>
-					</select>
+			<div class="header-content__row">
+				<div class="header-content__main">
+					<div class="header-title">
+						<h1 class="title">
+							Недвижимость
+							Санкт-Петербурга
+							и&nbsp;Москвы
+						</h1>
+					</div>
+					<form class="header-form">
+						<div class="header-form__actions">
+							<div class="select-container">
+								<p class="input-name text text--small">Выбрать город</p>
+								<div class="select-menu">
+									<div class="select-btn">
+										<span class="default-text">Выбрать город</span>
+										<i class="chevron-down-icon"></i>
+									</div>
+
+									<ul class="options">
+										<li class="option">
+											<span class="option-text">Москва</span>
+										</li>
+										<li class="option">
+											<span class="option-text">Санкт-Петербург</span>
+										</li>
+										<li class="option">
+											<span class="option-text">Владивосток</span>
+										</li>
+										<li class="option">
+											<span class="option-text">Оренбург</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-container">
+								<label for="email">
+									<p class="input-name text text--small">Ваш e-mail</p>
+									<input class="email-input" type="email" name="email" id="email" required placeholder="info@mail.ru">
+								</label>
+							</div>
+						</div>
+						<button class="btn submit-btn" type="submit">Кнопка действия</button>
+						<div class="checkbox-container">
+							<input class="header-form__checkbox" type="checkbox" name="checkbox" id="checkbox">
+							<label for="checkbox"></label>
+							<p class="text text--small">
+								Отправляя нам данную форму вы соглашаетесь с <a class="policy-link" href="404.html" target="_blank">политикой конфиденциальности</a>
+							</p>
+						</div>
+					</form>
 				</div>
-			</form>
+				<div class="header-content__image" style="background: url('/img/svg/header-decoration.svg') no-repeat center / contain">
+				</div>
+			</div>
 		</div>
 	</div>
 </header>

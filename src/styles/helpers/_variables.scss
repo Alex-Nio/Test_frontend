@@ -13,6 +13,14 @@ $nav_background: #2C2E3E;
 $header_background: #1E2030;
 $base_hover: #8F95AC;
 
+//! Special
+$borderColor: rgba(143, 149, 172, 0.4);
+
+//? Select width
+$width: 345px;
+$paddings: 17px 26px;
+$selectWidth: $width - (26 * 2);
+
 //! Font Size
 $base_fz: 1rem;
 $base_ff: 'Formular', sans-serif;
