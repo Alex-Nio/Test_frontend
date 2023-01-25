@@ -2,47 +2,40 @@
 // ---------------HEADER SLIDER-------------------
 // -----------------------------------------------
 
-// const swiper = new Swiper('.header-slider', {
-// 	// Optional parameters
-// 	direction: 'horizontal',
-// 	grabCursor: true,
-// 	slidesPerView: 1,
-// 	speed: 1050,
-// 	// loop: true,
-// 	// autoplay: true,
-// 	effect: "cube",
-// 	cubeEffect: {
-// 		shadow: false,
-// 		slideShadows: false,
-// 		shadowOffset: 20,
-// 		shadowScale: 0.8,
-// 	},
-// 	// If we need pagination
-// 	pagination: {
-// 		el: '.custom-pagination',
-// 	},
-
-// 	// Navigation arrows
-// 	navigation: {
-// 		nextEl: '.action-elipse-next',
-// 		prevEl: '.action-elipse-prev',
-// 	}
-// });
-
 const swiper = new Swiper(".swiper", {
 	direction: "horizontal",
 	loop: false,
+	autoplay: {
+		enabled: true,
+		delay: 3000
+	},
 	slidesPerView: 3,
 	spaceBetween: 30,
 	grabCursor: true,
-
+	speed: 2000,
 	pagination: {
 		el: ".swiper-pagination"
 	},
-
 	navigation: {
 		nextEl: ".swiper-button-next",
 		prevEl: ".swiper-button-prev"
+	},
+	breakpoints: {
+		// when window width is >= 320px
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 5
+		},
+		1080: {
+			slidesPerView: 2
+		},
+		1590: {
+			slidesPerView: 3,
+			spaceBetween: 10
+		},
+		1281: {
+			spaceBetween: 30
+		}
 	}
 });
 
@@ -122,10 +115,12 @@ function ratingInitialize() {
 			let target = e.target,
 				clickedRate;
 
-			clickedRate = changeRating(target, item, starSelector);
+			if (!target.classList.contains("rating")) {
+				clickedRate = changeRating(target, item, starSelector);
 
-			+item.setAttribute("data-rate", clickedRate + 1);
-			setRating(item, starSelector, clickedRate, "set");
+				+item.setAttribute("data-rate", clickedRate + 1);
+				setRating(item, starSelector, clickedRate, "set");
+			}
 		});
 	});
 }
