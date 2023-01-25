@@ -247,6 +247,7 @@ footer {
 
 .header-content {
 	@include fdrjsa_aic;
+	min-height: 100%;
 
 	&__row {
 		@include fdrjc_aic;
@@ -429,6 +430,7 @@ footer {
 		overflow-y: auto;
 		max-height: 295px;
 		margin-top: 0px;
+		opacity: 0;
 		padding: 10px 0;
 		background: $bd;
 		border: 1px solid $borderColor;

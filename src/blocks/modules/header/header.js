@@ -94,37 +94,6 @@
 // 	requestFrame(onScroll);
 // };
 
-// -----------------------------------------------
-// ---------------HEADER SLIDER-------------------
-// -----------------------------------------------
-
-// const swiper = new Swiper('.header-slider', {
-// 	// Optional parameters
-// 	direction: 'horizontal',
-// 	grabCursor: true,
-// 	slidesPerView: 1,
-// 	speed: 1050,
-// 	// loop: true,
-// 	// autoplay: true,
-// 	effect: "cube",
-// 	cubeEffect: {
-// 		shadow: false,
-// 		slideShadows: false,
-// 		shadowOffset: 20,
-// 		shadowScale: 0.8,
-// 	},
-// 	// If we need pagination
-// 	pagination: {
-// 		el: '.custom-pagination',
-// 	},
-
-// 	// Navigation arrows
-// 	navigation: {
-// 		nextEl: '.action-elipse-next',
-// 		prevEl: '.action-elipse-prev',
-// 	}
-// });
-
 //! Main Menu Initialization
 function menuInitialize() {
 	const menuItems = document.querySelectorAll(".menu-list__item"),

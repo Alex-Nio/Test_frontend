@@ -35,6 +35,10 @@ body {
 	max-width: 1190px;
 	padding: 0 10px;
 	margin: 0 auto;
+
+	&--big {
+		max-width: 1600px;
+	}
 }
 
 @media screen and (max-width: 767px) {
