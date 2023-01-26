@@ -260,6 +260,19 @@
 		background-repeat: no-repeat;
 		min-height: 600px;
 		margin-top: -30px;
+		transform: scale(1);
+		transition: all 0.3s linear;
+
+		&:hover {
+			transform: scale(1.005) rotate(2deg);
+			transition: all 0.3s linear;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.header-content__image:hover {
+		pointer-events: none;
 	}
 }
 
