@@ -73,7 +73,7 @@ function cratePopup(incomingHeadingText, incomingText, ...args) {
 			align-self: end;
 			margin: 20px;
 			padding: 5px;
-			background: url('img/svg/popup-close.svg') no-repeat center / 100%;
+			background: url('./img/svg/popup-close.svg') no-repeat center / 100%;
 			z-index: 10;
 		`;
 

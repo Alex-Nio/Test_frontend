@@ -248,12 +248,12 @@ button {
 	height: 28px;
 	top: 15px;
 	right: 5px;
-	background: url('/img/svg/burger-icon.svg') no-repeat center / contain;
+	background: url('../img/svg/burger-icon.svg') no-repeat center / contain;
 	font-size: 1.8rem;
 	color: $white;
 
 	&.active {
-		background: url('/img/svg/close-icon.svg') no-repeat center / contain;
+		background: url('../img/svg/close-icon.svg') no-repeat center / contain;
 	}
 }
 

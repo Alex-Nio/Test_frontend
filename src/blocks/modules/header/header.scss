@@ -55,7 +55,7 @@
 			top: 52%;
 			right: 25px;
 			transform: translate(50%, -50%);
-			background: url("/img/svg/arrow-icon.svg") no-repeat center / 100%;
+			background: url("../img/svg/arrow-icon.svg") no-repeat center / 100%;
 			transition: all 0.3s linear;
 		}
 
@@ -319,7 +319,7 @@
 	border-color: $red;
 	width: 18px;
 	height: 18px;
-	background: url("/img/svg/checkbox-arrow.svg") no-repeat center / 13px, $red;
+	background: url("../img/svg/checkbox-arrow.svg") no-repeat center / 13px, $red;
 }
 
 .header-form__checkbox:not(:disabled):not(:checked)+label:hover::before {
@@ -365,7 +365,7 @@
 .chevron-down-icon {
 	width: 12px;
 	height: 8px;
-	background: url('/img/svg/arrow-icon.svg') no-repeat center / cover;
+	background: url('../img/svg/arrow-icon.svg') no-repeat center / cover;
 }
 
 .select-menu {

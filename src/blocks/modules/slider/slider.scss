@@ -88,11 +88,11 @@
 	height: 22px;
 
 	&--empty {
-		background: url('/img/svg/rating-star-empty.svg') no-repeat center / 100%;
+		background: url('.././img/svg/rating-star-empty.svg') no-repeat center / 100%;
 	}
 
 	&--filled {
-		background: url('/img/svg/rating-star-filled.svg') no-repeat center / 100%;
+		background: url('.././img/svg/rating-star-filled.svg') no-repeat center / 100%;
 	}
 
 	&:nth-child(even) {
@@ -122,7 +122,7 @@
 		height: 10px;
 		position: absolute;
 		z-index: 100;
-		background: url('/img/svg/slider-nav-arrow.svg') no-repeat center / 100%;
+		background: url('.././img/svg/slider-nav-arrow.svg') no-repeat center / 100%;
 	}
 
 	&:hover {
