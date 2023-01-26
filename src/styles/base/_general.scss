@@ -31,7 +31,6 @@ body {
 //? Размеры контейнеров
 .container {
 	position: relative;
-	width: 100%;
 	max-width: 1190px;
 	padding: 0 10px;
 	margin: 0 auto;
@@ -104,16 +103,16 @@ button {
 }
 
 .text {
-	color: $gl;
-
-	&--big {
-		@include ff($ff_F, $l, 1.5rem);
-		line-height: 22px;
-	}
+	color: #2C2E3E;
 
 	&--small {
 		@include ff($ff_F, $r, 1.4rem);
 		line-height: 18px;
+		color: $gl;
+	}
+
+	&--big {
+		color: #2C2E3E;
 	}
 }
 
@@ -137,6 +136,13 @@ button {
 		@include ff($ff_F, $b, 1.6rem);
 		line-height: 20px;
 	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 2rem);
+			line-height: 34px;
+		}
+	}
 }
 
 @media screen and(min-width: 1280px) {
@@ -159,6 +165,13 @@ button {
 		@include ff($ff_F, $b, 1.4rem);
 		line-height: 17.12px;
 	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.8rem);
+			line-height: 26px;
+		}
+	}
 }
 
 @media screen and(min-width: 768px) {
@@ -180,6 +193,13 @@ button {
 	h5 {
 		@include ff($ff_F, $b, 1.4rem);
 		line-height: 18px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.5rem);
+			line-height: 22px;
+		}
 	}
 }
 

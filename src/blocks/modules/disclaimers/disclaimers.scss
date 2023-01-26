@@ -1,0 +1,35 @@
+.disclaimers {
+	width: 100%;
+
+	&__inner {
+		margin-top: 81px;
+		margin-bottom: 112px;
+	}
+}
+
+.disclaimers-list {
+	@include fdrjsb_aic;
+
+	&__item {
+		width: 100%;
+		max-width: 220px;
+		height: 150px;
+		background: #FFFFFF;
+		box-shadow: 0px 0px 15px rgba(143, 149, 172, 0.15);
+		border-radius: 5px;
+
+		&:hover {
+			box-shadow: 0px 0px 20px rgba(143, 149, 172, 0.4);
+		}
+	}
+}
+
+.number {}
+
+.about {
+	font-family: 'Formular';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 34px;
+}

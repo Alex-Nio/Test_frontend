@@ -1,1 +1,97 @@
 // footer scss
+.footer-content {
+
+	&__inner {
+		@include fdrjsb_aic;
+		padding-top: 38px;
+		margin: 0 0 92px 0;
+		border-top: 1px solid rgba(143, 149, 172, 0.2);
+	}
+}
+
+.adress {
+	font-family: 'Formular';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.4rem;
+	line-height: 18px;
+}
+
+.footer-actions {
+	@include fdrje_aic;
+}
+
+.scroll-top {
+	position: relative;
+	@include fdrjs_aic;
+	background: transparent;
+	margin-bottom: 17px;
+	padding-right: 45px;
+
+	&::before {
+		position: absolute;
+		content: "";
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		width: 30px;
+		height: 30px;
+		border-radius: 100px;
+		background-color: $nav_background;
+		z-index: 1;
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		top: 8px;
+		right: 12px;
+		width: 7px;
+		height: 6px;
+		transform: scale(1, -1);
+		background: url('/img/svg/arrow-icon.svg') no-repeat center / 100%;
+		z-index: 2;
+	}
+}
+
+.find-us {
+	@include fdcjc_ais;
+	cursor: default;
+}
+
+.phone {
+	margin-right: 17%;
+}
+
+.phone a {
+	transition: all 0.3s linear;
+
+	&:hover {
+		color: $red;
+		transition: all 0.3s linear;
+	}
+}
+
+.contact-us {
+	position: relative;
+	color: $red;
+
+	&:hover {
+		color: $red;
+
+		&::after {
+			width: 100%;
+			transition: all 0.3s linear;
+		}
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		border-bottom: 1px solid $red;
+		transition: all 0.3s linear;
+	}
+}

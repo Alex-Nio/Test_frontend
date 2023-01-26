@@ -12,7 +12,7 @@ const swiper = new Swiper(".swiper", {
 	slidesPerView: 3,
 	spaceBetween: 30,
 	grabCursor: true,
-	speed: 2000,
+	speed: 800,
 	pagination: {
 		el: ".swiper-pagination"
 	},
