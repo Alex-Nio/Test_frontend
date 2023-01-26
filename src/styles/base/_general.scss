@@ -31,12 +31,12 @@ body {
 //? Размеры контейнеров
 .container {
 	position: relative;
-	max-width: 1190px;
+	max-width: 1220px;
 	padding: 0 10px;
 	margin: 0 auto;
 
 	&--big {
-		max-width: 1600px;
+		max-width: 1470px;
 	}
 }
 
@@ -55,6 +55,10 @@ body {
 	overflow-x: hidden;
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
+
+	&.blocked {
+		position: fixed;
+	}
 }
 
 main {
@@ -203,6 +207,15 @@ button {
 	}
 }
 
+@media screen and(min-width: 320px) {
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.5rem);
+			line-height: 22px;
+		}
+	}
+}
+
 // ------------------------------------------------
 // --------------UNIC BUTTONS----------------------
 // ------------------------------------------------
@@ -238,6 +251,10 @@ button {
 	background: url('/img/svg/burger-icon.svg') no-repeat center / contain;
 	font-size: 1.8rem;
 	color: $white;
+
+	&.active {
+		background: url('/img/svg/close-icon.svg') no-repeat center / contain;
+	}
 }
 
 // ------------------------------------------------
@@ -312,5 +329,49 @@ button {
 	to {
 		transform: translate3d(0, 20px, 0);
 		opacity: 0;
+	}
+}
+
+@-webkit-keyframes zoomIn {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes zoomIn {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes zoomOut {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(0);
+	}
+}
+
+@keyframes zoomOut {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(0);
 	}
 }

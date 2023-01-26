@@ -177,11 +177,6 @@
 	}
 }
 
-.header-content {
-	height: 100vh;
-	width: 100vw;
-	background: $header_background;
-}
 
 @media screen and (max-width: 1120px) {
 	.burger-btn {
@@ -244,13 +239,17 @@
 .header-content {
 	@include fdrjsa_aic;
 	min-height: 100%;
+	height: 100vh;
+	width: 100vw;
+	background: $header_background;
 
 	&__row {
 		@include fdrjc_aic;
+		width: 100%;
 	}
 
 	&__main {
-		padding-right: 33px;
+		padding: 0 33px;
 	}
 
 	&__image {
@@ -488,8 +487,6 @@
 	}
 }
 
-.input-container {}
-
 .input-name {
 	margin-bottom: 12px;
 }
@@ -533,14 +530,6 @@
 	}
 }
 
-.text {}
-
-.text--small {}
-
-.btn {}
-
-.submit-btn {}
-
 .checkbox-container {
 	@include fdrjs_ais;
 	margin-top: 40px;
@@ -571,7 +560,7 @@
 	}
 
 	.header-content__main {
-		padding-right: 0;
+		padding: 0;
 	}
 
 	.header-content__image {
@@ -583,6 +572,10 @@
 }
 
 @media screen and (max-width: 420px) {
+	.header-content__main {
+		padding: 0;
+	}
+
 	.header-form {
 		@include fdcjc_aic;
 	}

@@ -71,9 +71,15 @@
 	bottom: 31px;
 	left: 50%;
 	width: 100%;
-	max-width: 410px;
+	max-width: 375px;
 	transform: translateX(-50%);
 	z-index: 10;
+}
+
+@media screen and (max-width:480px) {
+	.rating {
+		max-width: 270px;
+	}
 }
 
 .rating-star {

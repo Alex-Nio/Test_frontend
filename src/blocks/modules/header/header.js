@@ -1,99 +1,3 @@
-// -----------------------------------------------
-// -------------SVG FILL SCRIPT-------------------
-// -----------------------------------------------
-
-// $(function () {
-// 	$('img.img-svg').each(function () {
-// 		var $img = $(this);
-// 		var imgClass = $img.attr('class');
-// 		var imgURL = $img.attr('src');
-// 		$.get(imgURL, function (data) {
-// 			var $svg = $(data).find('svg');
-// 			if (typeof imgClass !== 'undefined') {
-// 				$svg = $svg.attr('class', imgClass + ' replaced-svg');
-// 			}
-// 			$svg = $svg.removeAttr('xmlns:a');
-// 			if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-// 				$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
-// 			}
-// 			$img.replaceWith($svg);
-// 		}, 'xml');
-// 	});
-// });
-
-// -----------------------------------------------
-// -----------HEADER NAV SCROLL-------------------
-// -----------------------------------------------
-
-// // Blocks
-// let header = document.querySelector('.header'),
-// 	content = document.querySelector('.header__content'),
-// 	nav = header.querySelector('.header-nav'),
-// 	burgerBtn = document.querySelector('.header-nav__trigger'),
-// 	mobileMenu = document.querySelector('.mobile-menu'),
-// 	mobileMenuLi = mobileMenu.querySelectorAll('.mobile-menu__item');
-// // Triggers
-// let scrollTriger = 'on-scroll',
-// 	activeTrigger = 'active',
-// 	menuOpenTrigger = 'open-menu',
-// 	showTrigger = 'show',
-// 	// Params
-// 	navHeight = nav.offsetHeight;
-
-// burgerBtn.addEventListener('click', () => {
-// 	burgerBtn.classList.toggle(menuOpenTrigger);
-// 	mobileMenu.classList.toggle(activeTrigger);
-
-// 	// Если меню отображено, показываем пункты меню
-// 	if (mobileMenu.classList.contains(activeTrigger)) {
-// 		mobileMenuLi.forEach(li => {
-// 			li.classList.add(showTrigger);
-// 		});
-// 	} else {
-// 		mobileMenuLi.forEach(li => {
-// 			li.classList.remove(showTrigger);
-// 		});
-// 	}
-// });
-
-// -----------------------------------------------
-// ------------------REQ FRAMES-------------------
-// -----------------------------------------------
-
-// var requestFrame = window.requestAnimationFrame ||
-// 	window.webkitRequestAnimationFrame ||
-// 	// polyfill - throttle fall-back for unsupported browsers
-// 	(function () {
-// 		var throttle = false,
-// 			FPS = 1000 / 60; // 60fps (in ms)
-
-// 		return function (CB) {
-// 			if (throttle) return;
-// 			throttle = true;
-// 			setTimeout(function () { throttle = false }, FPS);
-// 			CB();
-// 			console.log(CB);
-// 		}
-// 	})();
-
-// // use case:
-// function onScroll() {
-// 	window.addEventListener("scroll", callbackFunc);
-// 	function callbackFunc() {
-// 		var y = window.pageYOffset;
-
-// 		if (y > 0) {
-// 			nav.classList.add(scrollTriger);
-// 		} else {
-// 			nav.classList.remove(scrollTriger);
-// 		}
-// 	}
-// }
-
-// window.onscroll = function () {
-// 	requestFrame(onScroll);
-// };
-
 //! Main Menu Initialization
 function menuInitialize() {
 	const menuItems = document.querySelectorAll(".menu-list__item"),
@@ -119,7 +23,7 @@ function menuInitialize() {
 	});
 
 	// Клик по документу
-	document.addEventListener('click', function(e) {
+	document.addEventListener("click", function(e) {
 		let target = e.target,
 			not_active = !target.classList.contains("active"),
 			not_content = !target.classList.contains("menu-content");
@@ -207,38 +111,41 @@ function menuInitialize() {
 
 document.addEventListener("DOMContentLoaded", function() {
 	//!Header Scrolling
-	const nav = document.querySelector('.nav');
+	const nav = document.querySelector(".nav");
 
 	// Triggers
-	let scrollTriger = 'on-scroll',
+	let scrollTriger = "on-scroll",
 		windowWidth;
-	
+
 	function checkWindowWidth() {
 		windowWidth = document.documentElement.offsetWidth;
 		return windowWidth;
 	}
-	
-	window.addEventListener('resize', checkWindowWidth);
+
+	window.addEventListener("resize", checkWindowWidth);
 	checkWindowWidth();
 
-	let requestFrame = window.requestAnimationFrame ||
+	let requestFrame =
+		window.requestAnimationFrame ||
 		window.webkitRequestAnimationFrame ||
 		//* polyfill - throttle fall-back for unsupported browsers
-		(function () {
+		(function() {
 			let throttle = false,
 				FPS = 1000 / 60; // 60fps (in ms)
 
-			return function (CB) {
+			return function(CB) {
 				if (throttle) return;
 				throttle = true;
-				setTimeout(function () { throttle = false }, FPS);
+				setTimeout(function() {
+					throttle = false;
+				}, FPS);
 				CB();
-			}
+			};
 		})();
 
 	function onScroll() {
 		window.addEventListener("scroll", callbackFunc);
-	
+
 		function callbackFunc() {
 			let y = window.pageYOffset;
 
@@ -250,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
-	window.onscroll = function () {
+	window.onscroll = function() {
 		requestFrame(onScroll);
 	};
 
@@ -269,8 +176,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Открыть / Закрыть меню
 	function menuToggle(menu, btn, content) {
+		btn.classList.toggle("active");
 		menu.classList.toggle("active");
-		!btn.classList.contains("active") ?? hideMenuContent(content);
 		hideMenuContent(content);
 	}
 
@@ -282,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	hideMenuContent(menuContentItems);
 
 	// Закрыть меню при клике извне
-	document.addEventListener('click', function(e) {
+	document.addEventListener("click", function(e) {
 		const target = e.target;
 		const its_menu = target == menu || menu.contains(target);
 		const its_btnMenu = target == burgerBtn;
@@ -307,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		optionMenu.classList.add("animated");
 	});
 
-	options.forEach((option) => {
+	options.forEach(option => {
 		option.addEventListener("click", () => {
 			let selectedOption = option.querySelector(".option-text").innerText;
 			selectDefaultText.innerText = selectedOption;
@@ -315,6 +222,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			optionMenu.classList.remove("active");
 		});
 	});
-})
+});
 
 document.addEventListener("DOMContentLoaded", menuInitialize);

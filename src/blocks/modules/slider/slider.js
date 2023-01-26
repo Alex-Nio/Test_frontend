@@ -126,3 +126,9 @@ function ratingInitialize() {
 }
 
 document.addEventListener("DOMContentLoaded", ratingInitialize);
+
+let showMoreBtn = document.querySelector(".show-more-link");
+
+showMoreBtn.addEventListener("click", e => {
+	e.preventDefault();
+});

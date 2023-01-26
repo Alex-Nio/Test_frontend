@@ -8,15 +8,18 @@
 }
 
 .disclaimers-list {
-	@include fdrjsb_aic;
+	display: grid;
+	grid: repeat(1, 1fr) / repeat(5, minmax(220px, 220px));
+	grid-column-gap: 30px;
+	justify-content: center;
 
 	&__item {
-		width: 100%;
-		max-width: 220px;
-		height: 150px;
+		@include fdcjc_ais;
 		background: #FFFFFF;
 		box-shadow: 0px 0px 15px rgba(143, 149, 172, 0.15);
 		border-radius: 5px;
+		padding: 38px 29px 33px 36px;
+		cursor: default;
 
 		&:hover {
 			box-shadow: 0px 0px 20px rgba(143, 149, 172, 0.4);
@@ -24,7 +27,27 @@
 	}
 }
 
-.number {}
+@media screen and (max-width: 1390px) {
+	.disclaimers-list {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 220px);
+		grid-row-gap: 30px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.disclaimers-list {
+		grid-template-rows: repeat(1, 1fr);
+		grid-template-columns: repeat(2, 220px);
+		grid-row-gap: 30px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.disclaimers-list {
+		display: none;
+	}
+}
 
 .about {
 	font-family: 'Formular';

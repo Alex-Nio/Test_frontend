@@ -194,3 +194,20 @@ input[type="range"] {
 	-webkit-animation: fadeIn 0.3s linear;
 	animation: fadeIn 0.3s linear;
 }
+
+@media screen and (max-width: 1160px) {
+	.info__inner {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.info-progressbar {
+		margin-bottom: 60px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.info__inner {
+		margin: 120px 0 60px 0;
+	}
+}

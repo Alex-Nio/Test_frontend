@@ -23,34 +23,31 @@
 
 .scroll-top {
 	position: relative;
-	@include fdrjs_aic;
+	@include fdrjsb_aic;
 	background: transparent;
 	margin-bottom: 17px;
-	padding-right: 45px;
+	transition: all 0.3s linear;
 
-	&::before {
-		position: absolute;
-		content: "";
-		top: 50%;
-		right: 0;
-		transform: translateY(-50%);
+	&__control {
+		@include fdrjc_aic;
 		width: 30px;
 		height: 30px;
 		border-radius: 100px;
 		background-color: $nav_background;
+		margin-left: 14px;
+		transition: all 0.3s linear;
 		z-index: 1;
+
+		& img {
+			transform: scale(1, -1);
+		}
 	}
 
-	&::after {
-		position: absolute;
-		content: "";
-		top: 8px;
-		right: 12px;
-		width: 7px;
-		height: 6px;
-		transform: scale(1, -1);
-		background: url('/img/svg/arrow-icon.svg') no-repeat center / 100%;
-		z-index: 2;
+	&:hover {
+		& .scroll-top__control {
+			transform: scale(1.13);
+			transition: all 0.3s linear;
+		}
 	}
 }
 
@@ -93,5 +90,20 @@
 		width: 0;
 		border-bottom: 1px solid $red;
 		transition: all 0.3s linear;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.footer-content__inner {
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.find-us {
+		align-items: center;
+	}
+
+	.phone {
+		margin: 40px 0;
 	}
 }
