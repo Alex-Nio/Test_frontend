@@ -246,6 +246,7 @@
 	&__row {
 		@include fdrjc_aic;
 		width: 100%;
+		margin: 150px 0 175px 0;
 	}
 
 	&__main {
@@ -262,6 +263,7 @@
 		margin-top: -30px;
 		transform: scale(1);
 		transition: all 0.3s linear;
+		margin: 0 30px 0 0;
 
 		&:hover {
 			transform: scale(1.005) rotate(2deg);
@@ -581,6 +583,7 @@
 		min-height: 180px;
 		max-width: 180px;
 		margin-bottom: 15px;
+		margin-right: 0;
 	}
 }
 
