@@ -183,7 +183,7 @@ function cratePopup(incomingHeadingText, incomingText) {
     } else {
       popupText.style.cssText = "\n\t\t\t\tfont-size: 2.8rem;\n\t\t\t\tmax-width: 240px;\n\t\t\t\ttext-align: center;\n\t\t\t\tmargin: 0 auto;\n\t\t\t";
     }
-    popupCloseBtn.style.cssText = "\n\t\t\twidth: 30px;\n\t\t\theight: 30px;\n\t\t\talign-self: end;\n\t\t\tmargin: 20px;\n\t\t\tpadding: 5px;\n\t\t\tbackground: url('./img/svg/popup-close.svg') no-repeat center / 100%;\n\t\t\tz-index: 10;\n\t\t";
+    popupCloseBtn.style.cssText = "\n\t\t\twidth: 30px;\n\t\t\theight: 30px;\n\t\t\talign-self: end;\n\t\t\tmargin: 20px;\n\t\t\tpadding: 5px;\n\t\t\tbackground: url('../img/svg/popup-close.svg') no-repeat center / 100%;\n\t\t\tz-index: 10;\n\t\t";
     popupText.style.cssText = "\n\t\t\tfont-size: 2.4rem;\n\t\t\tmax-width: 240px;\n\t\t\ttext-align: center;\n\t\t\tmargin: 0 auto;\n\t\t";
     popupHeading.style.cssText = "\n\t\t\tfont-size: 4rem;\n\t\t\tfont-family: \"Formular\";\n\t\t\tmargin: 15px 0 30px 0;\n\t\t";
     popupWrapper.style.cssText = "\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: column;\n\t\t\tjustify-content: flex-start;\n\t\t\talign-items: center;\n\t\t\twidth: 320px;\n\t\t\theight: 460px;\n\t\t\tbackground-color: #ffffff;\n\t\t\tborder-radius: 30px;\n\t\t\tbox-shadow: 0px 0px 20px rgba(143, 149, 172, 0.4);\n\t\t\tanimation: zoomIn 0.5s linear;\n\t\t";
